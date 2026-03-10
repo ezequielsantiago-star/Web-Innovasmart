@@ -1,0 +1,189 @@
+@use "../utilities" as *;
+
+/* =========================================================
+   ICON BUTTONS — Innovasmart
+   - Base premium reutilizable
+   - Menú / cerrar con caracteres
+   - Botón derecho con SVG sólido
+   ========================================================= */
+
+.icon-btn {
+  --icon-btn-size: #{$icon-btn};
+  --icon-btn-radius: 16px;
+  --icon-btn-border: rgba(255, 255, 255, 0.12);
+  --icon-btn-color: var(--text);
+  --icon-btn-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: var(--icon-btn-size);
+  height: var(--icon-btn-size);
+  flex: 0 0 auto;
+
+  display: inline-grid;
+  place-items: center;
+
+  border: 1px solid var(--icon-btn-border);
+  border-radius: var(--icon-btn-radius);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  box-shadow: var(--icon-btn-shadow);
+
+  color: var(--icon-btn-color);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    color 0.22s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 35%,
+      rgba(255, 230, 0, 0.18) 50%,
+      rgba(255, 255, 255, 0.04) 65%,
+      transparent 100%
+    );
+    transform: translateX(-130%);
+    transition: transform 0.7s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 10px;
+    bottom: 6px;
+    height: 10px;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 999px;
+    background: rgba(255, 230, 0, 0.18);
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.22s ease;
+  }
+
+  /* texto del botón (☰ / ✕) */
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+
+  svg {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    display: block;
+    overflow: visible;
+    transition:
+      transform 0.22s ease,
+      stroke 0.22s ease,
+      fill 0.22s ease,
+      opacity 0.22s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 230, 0, 0.24);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.04)
+    );
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.28),
+      0 0 0 1px rgba(255, 230, 0, 0.06) inset;
+
+    &::before {
+      transform: translateX(130%);
+    }
+
+    &::after {
+      opacity: 1;
+    }
+
+    svg {
+      transform: scale(1.06);
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: rgba(255, 230, 0, 0.45);
+    box-shadow:
+      0 0 0 4px rgba(255, 230, 0, 0.14),
+      0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* botón derecho con ícono sólido */
+.cart-btn {
+  svg,
+  path {
+    fill: currentColor;
+    stroke: none;
+  }
+}
+
+.icon-btn--brand {
+  --icon-btn-border: rgba(255, 255, 255, 0.12);
+  --icon-btn-color: var(--text);
+}
+
+.icon-btn--soft {
+  --icon-btn-border: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+
+  &:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.03)
+    );
+  }
+}
+
+.icon-btn--sm {
+  --icon-btn-size: 40px;
+  font-size: 1rem;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.icon-btn--lg {
+  --icon-btn-size: 52px;
+  font-size: 1.35rem;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}

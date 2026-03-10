@@ -1,0 +1,33 @@
+@use "../utilities/breakpoints" as *;
+
+/* =========================================================
+   CONTAINER
+   Wrapper principal del layout.
+   Controla ancho máximo y gutters laterales.
+========================================================= */
+
+.container{
+  width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
+
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@include down(md){
+  .container{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@include down(sm){
+  .container{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

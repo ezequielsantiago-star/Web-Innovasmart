@@ -1,0 +1,28 @@
+/* =========================================================
+   FUNCTIONS
+   Funciones Sass reutilizables.
+   No generan CSS directo, solo ayudan a cálculos.
+========================================================= */
+
+@use "breakpoints" as *;
+@use "sass:map";
+
+/* =========================================================
+   BREAKPOINT
+   Obtiene un breakpoint desde el mapa central.
+   Ejemplo: bp(md) → 768px
+========================================================= */
+
+@function bp($key){
+  @return map.get($breakpoints, $key);
+}
+
+/* =========================================================
+   REM
+   Convierte px a rem.
+   Ejemplo: rem(24) → 1.5rem
+========================================================= */
+
+@function rem($px, $base: 16px){
+  @return ($px / $base) * 1rem;
+}

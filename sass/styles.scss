@@ -1,0 +1,10 @@
+// Importar utilidades y helpers primero
+@use "utilities";
+// Importar estilos base (reset, globals, motion)
+@use "base";
+// Importar layouts (container, header, footer, etc.)
+@use "layout";
+// Importar componentes (botones, cards, modals, etc.)
+@use "components";
+// Importar estilos de páginas específicas
+@use "pages";

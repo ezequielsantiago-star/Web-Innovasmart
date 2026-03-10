@@ -1,0 +1,85 @@
+/* =========================================================
+   MOTION
+   Animaciones globales del sitio.
+   - centraliza keyframes reutilizables
+   - respeta accesibilidad con reduced motion
+========================================================= */
+
+/* =========================================================
+   REDUCED MOTION
+   Desactiva animaciones/transiciones si el usuario
+   prefiere menos movimiento.
+========================================================= */
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   MODAL
+   Entrada suave del panel/modal.
+========================================================= */
+
+@keyframes modalIn{
+  from{
+    transform: translateY(10px) scale(.985);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   SEARCH
+   Rebote de retorno para elementos decorativos o blobs.
+========================================================= */
+
+@keyframes searchShakeBack{
+  0%{
+    transform: translate(-100%, 100%);
+  }
+  50%{
+    transform: translate(20%, -20%);
+  }
+  100%{
+    transform: translate(0%, 0%);
+  }
+}
+
+/* =========================================================
+   FLOAT BLOB
+   Movimiento suave flotante decorativo.
+========================================================= */
+
+@keyframes floatBlob{
+  0%,100%{
+    transform: translate(0, 0);
+    opacity: .85;
+  }
+  50%{
+    transform: translate(-10px, -12px);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   CARD IN
+   Entrada suave vertical para cards.
+========================================================= */
+
+@keyframes card-in{
+  from{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

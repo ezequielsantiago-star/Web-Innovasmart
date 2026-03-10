@@ -1,0 +1,83 @@
+@use "../utilities/breakpoints" as *;
+
+.section--cta{
+  padding-top: 8px;
+}
+
+.cta-box{
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.12);
+
+  background:
+    radial-gradient(circle at top left, rgba(255,230,0,.14), transparent 42%),
+    linear-gradient(135deg, rgba(255,230,0,.10), rgba(255,255,255,.03) 58%, rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+
+  @media (min-width: $bp-md){
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+  }
+
+  @media (min-width: $bp-lg){
+    padding: 26px 28px;
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,.04) 35%,
+      transparent 100%
+    );
+    opacity: .7;
+  }
+}
+
+.cta-box__content{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+}
+
+.cta-box__title{
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  color: var(--ml-yellow);
+  text-wrap: balance;
+}
+
+.cta-box__text{
+  margin: 0;
+  max-width: 62ch;
+  color: var(--text-2);
+  font-size: .98rem;
+  line-height: 1.5;
+}
+
+.cta-box__actions{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @media (min-width: $bp-md){
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

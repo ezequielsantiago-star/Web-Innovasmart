@@ -1,0 +1,115 @@
+@use "../utilities" as *;
+
+/* =========================================================
+   BOTONES REDES
+   ========================================================= */
+
+.social-btn,
+.social-btn:visited{
+  color: var(--text);
+  text-decoration: none;
+}
+
+.social-btn{
+  width: 100%;
+  min-height: 58px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(34,34,38,.95) 0%, rgba(24,24,28,.98) 100%);
+  box-shadow: var(--shadow-sm);
+
+  font-size: 1rem;
+  font-weight: 950;
+
+  transition:
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+.social-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,230,0,.28);
+  background: linear-gradient(180deg, rgba(40,40,44,.98) 0%, rgba(28,28,32,.98) 100%);
+  box-shadow: var(--shadow);
+}
+
+.social-btn:focus-visible{
+  outline: none;
+  border-color: rgba(255,230,0,.6);
+  box-shadow: var(--shadow-sm), var(--ring);
+}
+
+.social-btn__ico{
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+}
+
+.social-btn__ico svg{
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+/* =========================================================
+   BRANDS
+   ========================================================= */
+
+.social-btn[href*="instagram.com"] .social-btn__ico{
+  background: radial-gradient(circle at 30% 110%, #feda75 0 18%, #fa7e1e 30%, #d62976 55%, #962fbf 75%, #4f5bd5 100%);
+  border-color: rgba(255,255,255,.18);
+}
+
+.social-btn[href*="tiktok.com"] .social-btn__ico{
+  background: #111;
+  border-color: rgba(255,255,255,.18);
+  box-shadow:
+    0 0 0 2px rgba(37,244,238,.18),
+    0 0 0 5px rgba(254,44,85,.14);
+}
+
+.social-btn[href*="youtube.com"] .social-btn__ico,
+.social-btn[href*="youtu.be"] .social-btn__ico{
+  background: #ff0000;
+  border-color: rgba(255,255,255,.16);
+}
+
+.social-btn[href*="facebook.com"] .social-btn__ico{
+  background: #1877F2;
+  border-color: rgba(255,255,255,.16);
+}
+
+/* =========================================================
+   VARIANTE DESTACADA
+   ========================================================= */
+
+.social-btn--featured{
+  width: 100%;
+  min-height: 64px;
+  padding-inline: 18px;
+  font-size: 1.12rem;
+}
+
+.social-btn--featured .social-btn__ico{
+  width: 40px;
+  height: 40px;
+}
+
+.social-btn--featured .social-btn__ico svg{
+  width: 20px;
+  height: 20px;
+}

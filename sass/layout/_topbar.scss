@@ -1,0 +1,112 @@
+/* =========================================================
+   TOPBAR
+   Barra superior con redes y links rápidos
+========================================================= */
+
+.topbar{
+  background: rgba(20,20,22,.92);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.topbar__row{
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.topbar__social{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* icono base */
+
+.social-ico{
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+  border: 1px solid var(--border);
+
+  background: rgba(255,255,255,.05);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+/* icon svg */
+
+.social-ico svg{
+  width: 18px;
+  height: 18px;
+  fill: whitesmoke;
+}
+
+/* hover */
+
+.social-ico:hover{
+  transform: translateY(-1px) scale(1.02);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,230,0,.22);
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   SOCIAL VARIANTS
+========================================================= */
+
+/* youtube */
+
+.social-ico--yt{
+  background: #ff0000;
+  border-color: rgba(255,0,0,.55);
+  box-shadow: 0 12px 26px rgba(255,0,0,.18);
+}
+
+.social-ico--yt svg{
+  fill: #fff;
+}
+
+.social-ico--yt:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.topbar__links{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar__links a{
+  color: whitesmoke;
+  font-weight: 900;
+  letter-spacing: .15px;
+}
+
+.topbar__links a:hover{
+  text-decoration: underline;
+}

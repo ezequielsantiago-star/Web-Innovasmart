@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Libre</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <body class="page-productos">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Toggle drawer -->
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+  <label class="drawer-overlay" for="nav-toggle" aria-hidden="true"></label>
+
+  <!-- Drawer -->
+  <aside class="drawer" aria-label="Menú lateral">
+    <div class="drawer__head">
+      <span class="drawer__title">Menú</span>
+      <label class="icon-btn icon-btn--soft" for="nav-toggle" aria-label="Cerrar menú" role="button" tabindex="0">✕</label>
+    </div>
+
+    <nav class="drawer__body" aria-label="Navegación principal">
+      <ul class="drawer__list">
+        <li><a class="drawer__link" href="../index.html">Inicio</a></li>
+        <li><a class="drawer__link is-active" href="./importaciones.html">Productos</a></li>
+        <li><a class="drawer__link" href="./mercado-libre.html">Mercado Libre</a></li>
+        <li><a class="drawer__link" href="./servicios-web.html">Servicios Web</a></li>
+        <li><a class="drawer__link" href="./productos.html">Productos</a></li>
+        <li><a class="drawer__link" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="drawer__divider"></div>
+
+      <div class="drawer__mini">
+        <p class="drawer__mini-title">Canales</p>
+          <div class="drawer__social" aria-label="Canales">
+            <a class="mini-icon" data-tag="China" href="https://www.tiktok.com/@matyfortin" target="_blank" rel="noopener"
+              aria-label="TikTok Importaciones China" title="TikTok Importaciones China">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+                <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z"/>
+              </svg>
+            </a>
+
+            <a class="mini-icon" data-tag="ML" href="https://tiktok.com/@maty.mercado.libr" target="_blank" rel="noopener"
+              aria-label="TikTok Mercado Libre" title="TikTok Mercado Libre">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+                <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z"/>
+              </svg>
+            </a>
+
+            <a class="mini-icon social-ico social-ico--yt" data-tag="YT" href="https://www.youtube.com/@matypereiraimportacion" target="_blank" rel="noopener"
+              aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+                <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.9 4.6 12 4.6 12 4.6s-5.9 0-7.5.5A3 3 0 0 0 2.4 7.2 31.4 31.4 0 0 0 2 12a31.4 31.4 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 22 12a31.4 31.4 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/>
+              </svg>
+            </a>
+          </div>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Topbar -->
+  <div class="topbar" aria-label="Barra superior">
+    <div class="container topbar__row">
+      <div class="topbar__social" aria-label="Canales">
+        <a class="social-ico" data-tag="China" href="https://www.tiktok.com/@matyfortin" target="_blank" rel="noopener"
+          aria-label="TikTok Importaciones China" title="TikTok Importaciones China">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z"/>
+          </svg>
+        </a>
+
+        <a class="social-ico" data-tag="ML" href="https://tiktok.com/@maty.mercado.libr" target="_blank" rel="noopener"
+          aria-label="TikTok Mercado Libre" title="TikTok Mercado Libre">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z"/>
+          </svg>
+        </a>
+
+        <a class="social-ico social-ico--yt" data-tag="YT" href="https://www.youtube.com/@matypereiraimportacion" target="_blank" rel="noopener"
+          aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.9 4.6 12 4.6 12 4.6s-5.9 0-7.5.5A3 3 0 0 0 2.4 7.2 31.4 31.4 0 0 0 2 12a31.4 31.4 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 22 12a31.4 31.4 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="topbar__links">
+        <a href="../index.html">Inicio</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row header-row--compact">
+        <div class="header-left">
+          <label for="nav-toggle" class="icon-btn" aria-label="Abrir menú" role="button" tabindex="0">☰</label>
+          <a class="logo" href="../index.html" aria-label="Inicio">
+            <img class="logo__img" src="../img/logo-innovasmart.jpeg" alt="Innovasmart">
+          </a>
+        </div>
+
+        <form class="search" action="productos.html" method="get" role="search" aria-label="Buscar productos" data-site-search>
+          <input class="search__input" type="search" name="q" placeholder="Buscar guías, mentorías premium..." autocomplete="off" />
+          <button class="search__btn" type="submit" aria-label="Buscar">
+              <span class="search__btn-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+                </svg>
+              </span>
+          </button>
+        </form>
+
+        <div class="header-right">
+          <a
+            class="icon-btn cart-btn"
+            href="https://wa.me/5491160374306?text=Hola%20quiero%20hacer%20una%20consulta%20por%20las%20asesor%C3%ADas"
+            target="_blank"
+            rel="noopener"
+            aria-label="Consultar por WhatsApp"
+            data-count="0">
+            <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+            <title>icon-cart</title>
+            <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+          </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+    <main>
+    <H1>Mercado Libre</H1>
+
+                <div class="product-grid" data-product-grid>
+          <!-- N1 -->
+          <article class="card product-card product-card--poster-top"
+                   data-product
+                   data-level="n1"
+                   data-title="Guía Importador Inicial"
+                   data-tags="nivel 1 entrada guia pdf checklist plantillas costos margen validar producto proveedor importacion inicial"
+                   aria-label="Guía Importador Inicial">
+            <a class="card-hit" href="#modal-n1" aria-label="Abrir detalles"></a>
+
+            <div class="card__media">
+              <img class="product-card__img" src="../img/nivel-1.jpeg" alt="Nivel 1 - Guía Importador Inicial" />
+            </div>
+
+            <div class="card__body">
+              <div class="product-meta">
+                <div class="meta-left">
+                  <span class="dot dot--n1" aria-hidden="true"></span>
+                  <strong>Nivel 1 • Inicial</strong>
+                  <span class="pill">Desde cero · Paso a paso.</span>
+                </div>
+                <div class="meta-right">
+                  <span class="pill pill--soft">Inicio de Ventas</span>
+                </div>
+              </div>
+
+              <h3 class="card__title">Guía Importador Inicial</h3>
+              <p class="card__text">Arrancá a importar con margen: Guía paso a paso, plantillas listas y tips con claves para evitar errores caros.</p>
+
+              <ul class="card__bullets">
+                <li>Checklist + plantillas listas (costos / margen / decisiones).</li>
+                <li>Cómo validar demanda y evitar el “producto clavo”.</li>
+                <li>Ruta simple para tu primera compra sin caos.</li>
+              </ul>
+
+              <div class="price">
+                <span class="price__value">$49.000</span>
+                <span class="price__hint">Tiempo tuyo: mínimo</span>
+              </div>
+
+              <div class="card__actions">
+                <a class="btn btn--primary" href="#modal-n1">Ver detalles</a>
+                <a class="btn btn--ghost"
+                   href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20comprar%20Gu%C3%ADa%20Importador%20Inicial"
+                   target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- N2 -->
+          <article class="card product-card product-card--poster-top"
+                   data-product
+                   data-level="n2"
+                   data-title="Ventas en piloto automático"
+                   data-tags="nivel 2 intermedio optimizacion ads publicidad analisis competencia trafico externo plan semanal grupo"
+                   aria-label="Ventas en piloto automático">
+            <a class="card-hit" href="#modal-n2" aria-label="Abrir detalles"></a>
+
+            <div class="card__media">
+              <img class="product-card__img" src="../img/nivel-2.jpeg" alt="Nivel 2 - Ventas en piloto automático" />
+            </div>
+
+            <div class="card__body">
+              <div class="product-meta">
+                <div class="meta-left">
+                  <span class="dot dot--n2" aria-hidden="true"></span>
+                  <strong>Nivel 2 • Intermedio</strong>
+                  <span class="pill">Grupo</span>
+                </div>
+                <div class="meta-right">
+                  <span class="pill pill--soft">Semanal</span>
+                </div>
+              </div>
+
+              <h3 class="card__title">Ventas en piloto automático</h3>
+              <p class="card__text">Ordená tus publicaciones y tu publicidad para vender parejo (sin estar 24/7 arriba del celu).</p>
+
+              <ul class="card__bullets">
+                <li>Optimización para mejorar CTR y conversión.</li>
+                <li>Ads con criterio: qué tocar y qué no, según margen.</li>
+                <li>Plan semanal: tareas claras + control.</li>
+              </ul>
+
+              <div class="price">
+                <span class="price__value">$100.000</span>
+                <span class="price__hint">Ritmo: semanal</span>
+              </div>
+
+              <div class="card__actions">
+                <a class="btn btn--primary" href="#modal-n2">Ver detalles</a>
+                <a class="btn btn--ghost"
+                   href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20comprar%20Ventas%20en%20piloto%20autom%C3%A1tico"
+                   target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- N3 -->
+          <article class="card product-card product-card--poster-top"
+                   data-product
+                   data-level="n3"
+                   data-title="Logística de gigantes"
+                   data-tags="nivel 3 avanzado full flex envios finanzas reclamos reputacion operacion stock devoluciones"
+                   aria-label="Logística de gigantes">
+            <a class="card-hit" href="#modal-n3" aria-label="Abrir detalles"></a>
+
+            <div class="card__media">
+              <img class="product-card__img" src="../img/nivel-3.jpeg" alt="Nivel 3 - Logística de gigantes" />
+            </div>
+
+            <div class="card__body">
+              <div class="product-meta">
+                <div class="meta-left">
+                  <span class="dot dot--n3" aria-hidden="true"></span>
+                  <strong>Nivel 3 • Avanzado</strong>
+                  <span class="pill">Operación</span>
+                </div>
+                <div class="meta-right">
+                  <span class="pill pill--soft">Full / Flex</span>
+                </div>
+              </div>
+
+              <h3 class="card__title">Logística de gigantes</h3>
+              <p class="card__text">Escalá con operación sólida: menos reclamos, mejor reputación y control real del negocio.</p>
+
+              <ul class="card__bullets">
+                <li>Full + Flex sin dolores: tiempos, gestión y procesos.</li>
+                <li>Finanzas y control para que el stock no te coma vivo.</li>
+                <li>Reclamos y reputación: cómo sostener el crecimiento.</li>
+              </ul>
+
+              <div class="price">
+                <span class="price__value">$150.000</span>
+                <span class="price__hint">Operación sólida</span>
+              </div>
+
+              <div class="card__actions">
+                <a class="btn btn--primary" href="#modal-n3">Ver detalles</a>
+                <a class="btn btn--ghost"
+                   href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20comprar%20Gu%C3%ADa%20Log%C3%ADstica%20de%20gigantes"
+                   target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- N4 -->
+          <article class="card product-card product-card--poster-top"
+                   data-product
+                   data-level="n4"
+                   data-title="Mentoría de Alto Impacto"
+                   data-tags="nivel 4 premium mentoria 1 a 1 auditoria metricas plan 30 60 90 cupos aplicacion"
+                   aria-label="Mentoría de Alto Impacto">
+            <a class="card-hit" href="#modal-n4" aria-label="Abrir detalles"></a>
+
+            <div class="card__media">
+              <img class="product-card__img" src="../img/nivel-4.jpeg" alt="Nivel 4 - Mentoría de Alto Impacto" />
+            </div>
+
+            <div class="card__body">
+              <div class="product-meta">
+                <div class="meta-left">
+                  <span class="dot dot--n4" aria-hidden="true"></span>
+                  <strong>Nivel 4 • Premium</strong>
+                  <span class="pill">1 a 1</span>
+                </div>
+                <div class="meta-right">
+                  <span class="badge badge--hot"><span aria-hidden="true">🔥</span> Más vendido</span>
+                </div>
+              </div>
+
+              <h3 class="card__title">Mentoría de Alto Impacto</h3>
+              <p class="card__text">Acompañamiento 1 a 1 para destrabar tu cuenta y escalar con métricas (sin adivinar).</p>
+
+              <ul class="card__bullets">
+                <li>Auditoría 360° + prioridades claras (qué cambia más rápido).</li>
+                <li>Tablero de métricas y decisiones (CTR / Conv / ACOS).</li>
+                <li>Plan 30/60/90 días + seguimiento.</li>
+              </ul>
+
+              <div class="price">
+                <span class="price__value">$250.000</span>
+                <span class="price__hint">Cupos limitados</span>
+              </div>
+
+              <div class="note note--warn">Premium sólo por aplicación (selección).</div>
+
+              <div class="card__actions">
+                <a class="btn btn--primary" href="#modal-n4">Ver detalles</a>
+                <a class="btn btn--ghost"
+                   href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20APLICAR%20a%20la%20Mentor%C3%ADa%20Premium%201%20a%201.%20Mi%20rubro%20es%3A%20____%20y%20hoy%20vendo%3A%20____"
+                   target="_blank" rel="noopener">Aplicar</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- MODALES -->
+    <div class="modal modal--compact" id="modal-n1" role="dialog" aria-modal="true" aria-labelledby="ttl-n1" data-modal>
+      <a class="modal__backdrop" href="#productos" aria-label="Cerrar"></a>
+
+      <div class="modal__panel" tabindex="-1">
+        <div class="modal__head">
+          <div>
+          
+            <p class="kicker">Nivel 1 • Inicial</p>
+
+           
+            <h2 class="modal__title" id="ttl-n1">Guía Importador y Vendedor Inicial</h2>
+
+            
+            <p class="muted">Ideal para aprender desde cero a importar y vender <br> con margen y sin errores caros.</p>
+          </div>
+
+          <a class="modal__close" href="#productos" aria-label="Cerrar">✕</a>
+        </div>
+
+        <div class="modal__grid">
+          <div class="modal__media">
+            <img src="../img/nivel-1.jpeg" alt="Guía Importador Inicial" />
+          </div>
+
+          <div class="modal__content">
+            <ul class="list">
+              <li>Guia Pdf + Checklist + plantillas (costos / margen / decisiones)</li>
+              <li>Validación rápida de producto/demanda</li>
+              <li>Ruta paso a paso para tu primera compra</li>
+              <li>Formato simple para aplicar hoy mismo</li>
+            </ul>
+
+            <div class="modal__price">
+              <div class="price__value">$49.000</div>
+              <div class="price__hint">Ritmo: Inicial</div>
+            </div>
+
+            <div class="modal__actions">
+              <a class="btn btn--primary"
+                href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20comprar%20Gu%C3%ADa%20Importador%20Inicial"
+                target="_blank" rel="noopener">
+                Comprar por WhatsApp
+              </a>
+
+              <a class="btn btn--ghost" href="#productos">Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal--compact" id="modal-n2" role="dialog" aria-modal="true" aria-labelledby="ttl-n2" data-modal>
+      <a class="modal__backdrop" href="#productos" aria-label="Cerrar"></a>
+      <div class="modal__panel" tabindex="-1">
+        <div class="modal__head">
+          <div>
+            <p class="kicker">Nivel 2 • Intermedio</p>
+            <h2 class="modal__title" id="ttl-n2">Ventas en piloto automático</h2>
+            <p class="muted">Optimización + ads + control semanal para vender más <br> y impulsar tu negocio de una manera clara y sostenible.</p>
+          </div>
+          <a class="modal__close" href="#productos" aria-label="Cerrar">✕</a>
+        </div>
+
+        <div class="modal__grid">
+          <div class="modal__media">
+            <img src="../img/nivel-2.jpeg" alt="Ventas en piloto automático" />
+          </div>
+
+          <div class="modal__content">
+            <ul class="list">
+              <li>Optimización de publicaciones (CTR/Conv)</li>
+              <li>Herramientas de análisis y competencia</li>
+              <li>Publicidad con criterio según margen</li>
+              <li>Plan semanal: tareas + seguimiento</li>
+            </ul>
+
+            <div class="modal__price">
+              <div class="price__value">$100.000</div>
+              <div class="price__hint">Ritmo: Inicial</div>
+            </div>
+
+            <div class="modal__actions">
+              <a class="btn btn--primary"
+                 href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20comprar%20Ventas%20en%20piloto%20autom%C3%A1tico"
+                 target="_blank" rel="noopener">Comprar por WhatsApp</a>
+              <a class="btn btn--ghost" href="#productos">Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal--compact" id="modal-n3" role="dialog" aria-modal="true" aria-labelledby="ttl-n3" data-modal>
+      <a class="modal__backdrop" href="#productos" aria-label="Cerrar"></a>
+      <div class="modal__panel" tabindex="-1">
+        <div class="modal__head">
+          <div>
+            <p class="kicker">Nivel 3 • Avanzado</p>
+            <h2 class="modal__title" id="ttl-n3">Logística de gigantes</h2>
+            <p class="muted">Full/Flex + finanzas + reputación: escalá sin caos.</p>
+          </div>
+          <a class="modal__close" href="#productos" aria-label="Cerrar">✕</a>
+        </div>
+
+        <div class="modal__grid">
+          <div class="modal__media">
+            <img src="../img/nivel-3.jpeg" alt="Logística de gigantes" />
+          </div>
+
+          <div class="modal__content">
+            <ul class="list">
+              <li>Mercado Envíos Flex y Full</li>
+              <li>Finanzas para vendedores + control</li>
+              <li>Gestión de reclamos y devoluciones</li>
+              <li>Reputación y procesos claros para escalar</li>
+            </ul>
+
+            <div class="modal__price">
+              <div class="price__value">$150.000</div>
+              <div class="price__hint">Nivel: Avanzado</div>
+            </div>
+
+            <div class="modal__actions">
+              <a class="btn btn--primary"
+                 href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20comprar%20Gu%C3%ADa%20Log%C3%ADstica%20de%20gigantes"
+                 target="_blank" rel="noopener">Comprar por WhatsApp</a>
+              <a class="btn btn--ghost" href="#productos">Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal--compact" id="modal-n4" role="dialog" aria-modal="true" aria-labelledby="ttl-n4" data-modal>
+      <a class="modal__backdrop" href="#productos" aria-label="Cerrar"></a>
+      <div class="modal__panel" tabindex="-1">
+        <div class="modal__head">
+          <div>
+            <p class="kicker">Nivel 4 • Premium 1 a 1 (Cupos Limitados)</p>
+            <h2 class="modal__title" id="ttl-n4">Mentoría de Alto Impacto</h2>
+            <p class="muted">Auditoría + métricas + plan 30/60/90 para escalar con orden.</p>
+          </div>
+          <a class="modal__close" href="#productos" aria-label="Cerrar">✕</a>
+        </div>
+
+        <div class="modal__grid">
+          <div class="modal__media">
+            <img src="../img/nivel-4.jpeg" alt="Mentoría de Alto Impacto" />
+          </div>
+
+          <div class="modal__content">
+            <div class="note note--hot">
+              <strong>🔥 Más vendido</strong> • Cupos limitados.
+            </div>
+
+            <ul class="list">
+              <li>Auditoría 360° + prioridades (quick wins)</li>
+              <li>Tablero de métricas (CTR/Conv/ACOS) y decisiones</li>
+              <li>Plan de crecimiento 30/60/90 días</li>
+              <li>Mentoría 1 a 1 (acompañamiento real)</li>
+              <li>Te muestro los errores que nadie te cuenta</li>
+            </ul>
+
+            <div class="modal__price">
+              <div class="price__value">$250.000</div>
+              <div class="price__hint">Nivel: Premium</div>
+            </div>
+
+            <div class="modal__actions">
+              <a class="btn btn--primary"
+                 href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20APLICAR%20a%20la%20Mentor%C3%ADa%20Premium%201%20a%201.%20Mi%20rubro%20es%3A%20____%20y%20hoy%20vendo%3A%20____"
+                 target="_blank" rel="noopener">Aplicar por WhatsApp</a>
+              <a class="btn btn--ghost" href="#productos">Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

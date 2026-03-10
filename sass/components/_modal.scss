@@ -1,0 +1,600 @@
+@use "../utilities/breakpoints" as *;
+
+/* =========================================================
+   MODAL
+   Global / reusable
+   - apertura con :target
+   - una sola experiencia de scroll clara
+   - mejor jerarquía visual
+   - responsive real
+========================================================= */
+
+.modal{
+  /* ======================================================
+     TOKENS
+  ====================================================== */
+  --modal-max-w: 1040px;
+  --modal-max-h: 740px;
+
+  --modal-radius: 24px;
+  --modal-border: 1px solid rgba(255,255,255,.12);
+
+  --modal-pad-head: 18px 20px;
+  --modal-pad-grid: 18px 20px 20px;
+
+  --modal-gap: 18px;
+  --modal-cols: minmax(320px, 38%) 1fr;
+
+  --modal-media-h: clamp(340px, 52vh, 520px);
+  --modal-media-radius: 18px;
+  --modal-media-pos: 50% 40%;
+
+  --modal-backdrop: rgba(0,0,0,.72);
+  --modal-surface: rgba(20,20,22,.96);
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  place-items: center;
+
+  padding: 16px;
+  overscroll-behavior: contain;
+}
+
+.modal:target{
+  display: grid;
+}
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: var(--modal-backdrop);
+}
+
+@supports (backdrop-filter: blur(10px)){
+  .modal__backdrop{
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.modal__panel{
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+
+  width: min(var(--modal-max-w), 100%);
+  max-height: min(var(--modal-max-h), 92vh);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: var(--modal-border);
+  border-radius: var(--modal-radius);
+
+  background:
+    radial-gradient(900px 220px at 50% -40px, rgba(255,230,0,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,230,0,.08), rgba(20,20,22,.96) 38%),
+    var(--modal-surface);
+
+  box-shadow: var(--shadow);
+  animation: modalIn .18s var(--ease);
+}
+
+.modal__panel::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(260px 260px at 12% 18%, rgba(255,230,0,.10), transparent 60%);
+}
+
+.modal__head,
+.modal__grid{
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.modal__head{
+  flex: 0 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 12px;
+
+  padding: var(--modal-pad-head);
+
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.modal__head > div{
+  max-width: 72ch;
+  justify-self: center;
+  text-align: center;
+}
+
+.modal__head .kicker{
+  margin: 0;
+  color: var(--ml-yellow);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 800;
+  text-align: center;
+}
+
+.modal__title{
+  margin: 8px 0 6px;
+  color: var(--ml-yellow);
+
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 950;
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+
+.modal__head .muted{
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  line-height: 1.45;
+}
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.modal__close{
+  justify-self: end;
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,230,0,.30);
+  border-radius: 14px;
+
+  background: rgba(255,230,0,.10);
+  color: var(--ml-yellow);
+  text-decoration: none;
+  font-weight: 950;
+
+  transition:
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+.modal__close:hover{
+  transform: translateY(-1px);
+  background: rgba(255,230,0,.14);
+  border-color: rgba(255,230,0,.42);
+  box-shadow: 0 10px 22px rgba(0,0,0,.45);
+}
+
+/* =========================================================
+   BODY GRID
+========================================================= */
+
+.modal__grid{
+  flex: 1;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: var(--modal-cols);
+  gap: var(--modal-gap);
+
+  padding: var(--modal-pad-grid);
+  overflow: auto;
+
+  align-items: start;
+}
+
+@media (min-width: $bp-lg){
+  .modal{
+    --modal-cols: 380px 1fr;
+  }
+}
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.modal__media{
+  height: var(--modal-media-h);
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--modal-media-radius);
+
+  background:
+    radial-gradient(700px 220px at 50% 0%, rgba(255,230,0,.10), transparent 55%),
+    #0b0b0c;
+
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.modal__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+  object-position: var(--modal-media-pos);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.modal__content{
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  align-items: center;
+  text-align: center;
+}
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.note{
+  width: 100%;
+  max-width: 58ch;
+
+  padding: 10px 12px;
+
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.04);
+
+  color: rgba(255,255,255,.88);
+  text-align: left;
+}
+
+.note--hot{
+  border-color: rgba(255,230,0,.24);
+  background: linear-gradient(180deg, rgba(255,230,0,.12), rgba(255,230,0,.05));
+}
+
+.note--soft{
+  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+}
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.modal__content .list{
+  width: 100%;
+  max-width: 58ch;
+
+  margin: 0;
+  padding-left: 18px;
+
+  color: rgba(255,255,255,.90);
+  text-align: left;
+}
+
+.modal__content .list li{
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.modal__content .list li::marker{
+  color: var(--ml-yellow);
+}
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.modal__price{
+  width: 100%;
+  margin-top: auto;
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(255,230,0,.24);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(180deg, rgba(255,230,0,.12), rgba(255,230,0,.05)),
+    rgba(255,255,255,.02);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 28px rgba(0,0,0,.22);
+
+  text-align: center;
+}
+
+.modal__price .price__value{
+  color: var(--ml-yellow);
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 950;
+  letter-spacing: .02em;
+  line-height: 1;
+}
+
+.modal__price .price__hint{
+  margin-top: 6px;
+  color: rgba(255,255,255,.72);
+  font-weight: 600;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.modal__actions{
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+.modal__actions .btn{
+  min-width: 210px;
+}
+
+/* =========================================================
+   BODY LOCK
+========================================================= */
+
+@supports selector(body:has(.modal:target)){
+  body:has(.modal:target){
+    overflow: hidden;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 860px){
+  .modal{
+    padding: 10px;
+
+    --modal-cols: 1fr;
+    --modal-gap: 12px;
+
+    --modal-pad-head: 14px 14px 10px;
+    --modal-pad-grid: 12px 14px 14px;
+
+    --modal-max-h: 92vh;
+    --modal-media-h: auto;
+  }
+
+  .modal__panel{
+    max-height: 92vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 18px;
+  }
+
+  .modal__grid{
+    display: flex;
+    flex-direction: column;
+    gap: var(--modal-gap);
+
+    min-height: auto;
+    overflow: visible;
+    padding: var(--modal-pad-grid);
+  }
+
+  .modal__head{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: inherit;
+    backdrop-filter: blur(10px);
+  }
+
+  .modal__head > div{
+    max-width: 100%;
+    text-align: left;
+    justify-self: start;
+  }
+
+  .modal__head .kicker,
+  .modal__title,
+  .modal__head .muted{
+    text-align: left;
+  }
+
+  .modal__media{
+    height: auto;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .modal__media img{
+    width: 100%;
+    height: auto;
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .modal__content{
+    align-items: stretch;
+    text-align: left;
+    gap: 12px;
+  }
+
+  .modal__content .list{
+    max-width: 100%;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .modal__price{
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  .modal__actions{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal__actions .btn{
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px){
+  .modal{
+    --modal-pad-head: 14px 12px 10px;
+    --modal-pad-grid: 10px 12px 12px;
+    --modal-gap: 10px;
+  }
+
+  .modal__panel{
+    border-radius: 16px;
+  }
+
+  .modal__title{
+    font-size: 24px;
+  }
+
+  .modal__close{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .modal__media{
+    max-width: 280px;
+  }
+
+  .modal__content .list{
+    padding-left: 16px;
+    font-size: 13.5px;
+  }
+}
+
+/* =========================================================
+   MODIFIER: COMPACT
+========================================================= */
+
+.modal.modal--compact{
+  --modal-max-w: 760px;
+  --modal-max-h: 620px;
+
+  --modal-pad-head: 14px 14px;
+  --modal-pad-grid: 12px 14px 14px;
+
+  --modal-gap: 12px;
+  --modal-cols: minmax(240px, 36%) 1fr;
+
+  --modal-media-h: clamp(220px, 30vh, 340px);
+  --modal-media-pos: 50% 32%;
+}
+
+.modal.modal--compact .modal__head > div{
+  max-width: 60ch;
+}
+
+.modal.modal--compact .modal__title{
+  font-size: clamp(20px, 2vw, 28px);
+}
+
+.modal.modal--compact .modal__price{
+  padding: 12px 14px;
+  border-radius: 16px;
+}
+
+.modal.modal--compact .modal__actions .btn{
+  min-width: 180px;
+}
+
+@media (max-width: 860px){
+  .modal.modal--compact{
+    --modal-max-w: 100%;
+    --modal-max-h: 92vh;
+    --modal-cols: 1fr;
+    --modal-gap: 12px;
+    --modal-media-h: auto;
+  }
+
+  .modal.modal--compact .modal__media{
+    max-width: 300px;
+    margin-inline: auto;
+  }
+}
+
+/* =========================================================
+   INDIVIDUAL MODAL IMAGE CONTROL
+   Ajustes puntuales por modal
+========================================================= */
+
+/* Importaciones */
+.modal--imp-1{
+  --modal-media-pos: 50% 18%;
+}
+
+.modal--imp-premium{
+  --modal-media-pos: 50% 12%;
+}
+
+/* Mercado Libre */
+.modal--ml-1{
+  --modal-media-pos: 50% 8%;
+}
+
+.modal--ml-2{
+  --modal-media-pos: 50% 14%;
+}
+
+.modal--ml-3{
+  --modal-media-pos: 50% 18%;
+}
+
+.modal--ml-4{
+  --modal-media-pos: 50% 10%;
+}
+
+/* Servicios */
+.modal--serv-mkt{
+  --modal-media-pos: 50% 22%;
+}
+
+.modal--serv-web{
+  --modal-media-pos: 50% 18%;
+}

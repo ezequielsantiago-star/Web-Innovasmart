@@ -1,0 +1,91 @@
+@use "../utilities" as *;
+@use "sass:map";
+
+/* =========================================================
+   HEADER
+   Barra superior sticky del sitio
+========================================================= */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: map.get($z, header);
+
+  background: rgba(11,11,12,.92);
+  border-bottom: 1px solid rgba(255,230,0,.18);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   HEADER LAYOUT
+========================================================= */
+
+.header-row{
+  min-height: var(--header-h);
+  padding: 10px 0;
+
+  display: grid;
+  align-items: center;
+  gap: 10px;
+
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "left center right";
+}
+
+/* =========================================================
+   HEADER AREAS
+========================================================= */
+
+.header-left{
+  grid-area: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-center{
+  grid-area: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right{
+  grid-area: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  margin-left: 10px;
+}
+
+.logo__img{
+  width: auto;
+  height: 78px;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 520px){
+  .header-row{
+    gap: 8px;
+  }
+
+  .logo__img{
+    height: 34px;
+  }
+}

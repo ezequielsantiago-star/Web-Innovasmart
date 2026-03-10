@@ -1,0 +1,52 @@
+/* =========================================================
+   RESET
+   Normaliza comportamiento básico del navegador.
+   No incluir estilos visuales del sitio.
+========================================================= */
+
+/* Box model consistente */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+/* Altura base del documento */
+html,
+body{
+  height: 100%;
+}
+
+/* Ajustes de renderizado del navegador */
+html{
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Elimina margin por defecto del body */
+body{
+  margin: 0;
+}
+
+/* Media elements */
+img{
+  max-width: 100%;
+  display: block;
+}
+
+/* Links */
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+/* Form elements */
+button,
+input,
+select,
+textarea{
+  font: inherit;
+}

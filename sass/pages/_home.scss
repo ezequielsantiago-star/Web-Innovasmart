@@ -1,0 +1,612 @@
+@use "../utilities/breakpoints" as *;
+
+/* =========================================================
+   HOME (page-home)
+   - Hero + secciones tipo maqueta
+   - Titles con marco + hover/fondo leve
+========================================================= */
+
+.page-home{
+  /* fondo con vida */
+  background:
+    radial-gradient(900px 520px at 18% -10%, rgba(255,230,0,.12), transparent 55%),
+    radial-gradient(760px 460px at 82% 10%, rgba(255,210,0,.10), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  color-scheme: dark;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  padding: 10px 0 6px;
+  background:
+    radial-gradient(1000px 520px at 50% -10%, rgba(255,230,0,.22), transparent 55%),
+    linear-gradient(180deg, rgba(255,230,0,.10) 0%, transparent 60%),
+    transparent;
+}
+
+.hero-grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+
+  @media (min-width: $bp-lg){
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-card{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+    rgba(20,20,22,.92);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+
+  /* más compacto */
+  min-height: clamp(220px, 18vw, 320px);
+
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+
+  &::before{
+    content: "";
+    position: absolute;
+    inset: -40px -40px auto auto;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,230,0,.18), transparent 60%);
+    transform: rotate(10deg);
+    pointer-events: none;
+  }
+}
+
+/* HERO COPY: centrado */
+.hero-card--copy{
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  .kicker,
+  .hero__title,
+  .hero__subtitle,
+  .muted.small{ margin: 0; }
+
+  .hero__subtitle{
+    max-width: 62ch;
+    line-height: 1.45;
+  }
+
+  .level-strip{
+    justify-content: center;
+  }
+
+  .hero__cta{
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,.10);
+
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .chip-row{
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .hero__title{
+    max-width: 18ch;
+  }
+}
+
+.hero__title{
+  margin: 0;
+  font-size: clamp(26px, 3.8vw, 46px);
+  letter-spacing: -0.7px;
+  line-height: 1.06;
+  text-transform: uppercase;
+  color: var(--text);
+  text-shadow: 0 1px 0 rgba(0,0,0,.55);
+}
+
+.hl{
+  display: inline-block;
+  background: var(--ml-yellow);
+  color: #111;
+  padding: 4px 10px;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.18), var(--glow-yellow);
+}
+
+.hero__subtitle{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 650;
+  max-width: 70ch;
+}
+
+.hero__cta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* niveles */
+.level-strip{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 2px 0 0;
+}
+
+.level-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(255,255,255,.88);
+  box-shadow: var(--shadow-sm);
+
+  transition: transform var(--dur) var(--ease), background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+
+  &:hover{
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,230,0,.22);
+  }
+}
+
+.level-pill--hot{
+  background: rgba(255,230,0,.90);
+  border-color: rgba(0,0,0,.18);
+  color: #111;
+  box-shadow: var(--glow-yellow);
+
+  &:hover{
+    background: rgba(255,230,0,.96);
+  }
+}
+
+/* HERO media (Videos) */
+.hero-card--media{
+  .media-head{
+    display: grid;
+    gap: 2px;
+    margin-bottom: 8px;
+  }
+
+  .media-head__title{
+    margin: 0;
+    font-weight: 950;
+    font-size: 16px;
+    color: var(--ml-yellow);
+  }
+
+  .media-head__sub{
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .tips-bs{ margin-top: 6px; }
+
+  .tips-bs .carousel-indicators{
+    position: static;
+    margin: 10px 0 0;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .tips-bs .carousel-indicators [data-bs-target]{
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+  }
+
+  .tips-bs .carousel-inner{
+    border-radius: 18px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tips-bs .carousel-item{ padding: 10px; }
+
+  .tips__item{ display: grid; gap: 10px; }
+
+  .tips__ratio{
+    border-radius: 18px;
+    overflow: hidden;
+    background: #000;
+    max-width: clamp(180px, 16vw, 240px);
+    margin-inline: auto;
+  }
+
+  .tips__ratio iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .tips__caption{
+    padding: 10px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(20,20,22,.92);
+    box-shadow: var(--shadow-sm);
+    max-width: 52ch;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .tips__caption-title{
+    margin: 0;
+    font-weight: 950;
+    letter-spacing: -.2px;
+    color: var(--ml-yellow);
+  }
+
+  .tips__caption-text{
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-weight: 650;
+    line-height: 1.35;
+  }
+
+  .tips-bs .carousel-control-prev,
+  .tips-bs .carousel-control-next{
+    width: 3rem;
+    align-items: center;
+  }
+
+  @media (max-width: 420px){
+    .tips__ratio{
+      max-width: 100%;
+      min-height: 360px;
+    }
+    .tips-bs .carousel-item{ padding: 10px; }
+  }
+}
+
+/* Micro-animación identidad */
+@media (prefers-reduced-motion: no-preference){
+  .hero-card::after{
+    content:"";
+    position:absolute;
+    inset:auto -40px -60px auto;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,230,0,.18), transparent 60%);
+    filter: blur(2px);
+    animation: floatBlob 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+/* =========================================================
+   PAGE HEAD (H1 centrado con “marco”)
+   - Esto se usa arriba del hero en tu HTML nuevo
+========================================================= */
+
+.page-head{
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.page-head--center{
+  text-align: center;
+  justify-items: center;
+}
+
+.page-title{
+  margin: 0;
+  font-weight: 1000;
+  letter-spacing: -0.8px;
+  line-height: 1.05;
+  font-size: clamp(28px, 4vw, 52px);
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0,0,0,.55);
+  max-width: 22ch;
+}
+
+.page-subtitle{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 650;
+  line-height: 1.45;
+  max-width: 70ch;
+}
+
+/* =========================================================
+   SECTION HEAD + TITLES con marco + hover suave
+========================================================= */
+
+.section{
+  padding: clamp(18px, 2.4vw, 28px) 0 clamp(22px, 3vw, 34px);
+}
+
+.section-head{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.section-head--center{
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+
+  .muted.small{ margin: 0; }
+}
+
+.section__title{
+  margin: 0;
+  font-size: clamp(22px, 2.6vw, 30px);
+  letter-spacing: -0.4px;
+  font-weight: 1000;
+  color: var(--text);
+}
+
+.section-link{
+  grid-column: 3;
+  justify-self: end;
+  color: var(--text-2);
+  font-weight: 850;
+  text-decoration: none;
+
+  &:hover{ color: var(--ml-yellow); }
+}
+
+/* “marco” identificador del título */
+.section__title--frame{
+  position: relative;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--dur) var(--ease),
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+
+  &:hover{
+    transform: translateY(-1px);
+    background: rgba(255,230,0,.06);
+    border-color: rgba(255,230,0,.22);
+    box-shadow: 0 18px 56px rgba(0,0,0,.68);
+  }
+
+  /* subrayado glow */
+  &::after{
+    content:"";
+    position:absolute;
+    left: 12px;
+    right: 12px;
+    bottom: -1px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, rgba(255,230,0,.55), transparent);
+    opacity: .85;
+    pointer-events: none;
+  }
+}
+
+/* =========================================================
+   QUICK GRID: “¿Qué necesitás hoy?”
+========================================================= */
+
+.quick-grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $bp-md){
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: $bp-lg){
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.quick-card{
+  padding: 14px;
+  text-align: center;
+
+  .card__title{
+    font-size: 18px;
+    font-weight: 950;
+    letter-spacing: -.25px;
+  }
+
+  .card__text{
+    color: var(--muted);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-top: 6px;
+  }
+
+  .card__actions{
+    margin-top: 12px;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   PROGRAM GRID: “Niveles” + “Cómo trabajamos”
+========================================================= */
+
+.program-grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $bp-lg){
+    grid-template-columns: 1.1fr .9fr;
+    align-items: start;
+  }
+}
+
+.program-card,
+.method-card{
+  padding: 14px;
+}
+
+.program-card__head,
+.method-card__head{
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+  justify-items: center;
+}
+
+/* Niveles 2x2 */
+.level-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 10px;
+
+  @media (min-width: $bp-md){
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.level-box{
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+
+  strong{
+    font-weight: 1000;
+    letter-spacing: -.3px;
+  }
+
+  &:hover{
+    transform: translateY(-2px);
+    border-color: rgba(255,230,0,.22);
+    background: rgba(255,230,0,.06);
+  }
+}
+
+.level-box--hot{
+  border-color: rgba(255,230,0,.26);
+  box-shadow: var(--glow-yellow);
+
+  &:hover{
+    background: rgba(255,230,0,.10);
+  }
+}
+
+.program-card__cta{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Cómo trabajamos */
+.method-steps{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.method-step{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+  text-align: left;
+
+  strong{
+    font-weight: 1000;
+    letter-spacing: -.2px;
+    color: var(--ml-yellow);
+  }
+
+  span{
+    color: var(--muted);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+
+  &:hover{
+    transform: translateY(-1px);
+    border-color: rgba(255,230,0,.20);
+    background: rgba(255,230,0,.05);
+  }
+}
+
+.method-card__cta{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* =========================================================
+   CTA final: un toque más “presentación”
+========================================================= */
+
+.section--cta{
+  padding-top: clamp(22px, 3vw, 34px);
+
+  .cta-box{
+    text-align: center;
+  }
+
+  .cta-box__title{
+    margin: 0;
+    font-weight: 1000;
+    letter-spacing: -.4px;
+    text-transform: uppercase;
+  }
+}

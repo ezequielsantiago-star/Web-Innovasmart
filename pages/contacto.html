@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Innovasmart — Contacto</title>
+  <meta
+    name="description"
+    content="Contactá a Innovasmart por WhatsApp, email y redes sociales."
+  />
+  <meta name="theme-color" content="#FFE600" />
+
+  <!-- Bootstrap primero, estilos propios después -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <!-- Optimización de conexión -->
+  <link rel="preconnect" href="https://wa.me" />
+</head>
+
+<body class="page-contacto">
+  <!-- Acceso rápido -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Drawer -->
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+  <label class="drawer-overlay" for="nav-toggle" aria-hidden="true"></label>
+
+  <aside class="drawer" aria-label="Menú lateral">
+    <div class="drawer__head">
+      <span class="drawer__title">Menú</span>
+      <label
+        class="icon-btn icon-btn--soft"
+        for="nav-toggle"
+        aria-label="Cerrar menú"
+        role="button"
+        tabindex="0"
+      >
+        ✕
+      </label>
+    </div>
+
+    <nav class="drawer__body" aria-label="Navegación principal">
+      <ul class="drawer__list">
+        <li><a class="drawer__link" href="../index.html">Inicio</a></li>
+        <li><a class="drawer__link" href="productos.html">Productos</a></li>
+        <li><a class="drawer__link" href="servicios-web.html">Servicios Web</a></li>
+        <li><a class="drawer__link is-active" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="drawer__divider"></div>
+
+      <div class="drawer__mini">
+        <p class="drawer__mini-title">Canales</p>
+
+        <div class="drawer__social" aria-label="Canales">
+          <a
+            class="mini-icon"
+            data-tag="China"
+            href="https://www.tiktok.com/@matyfortin"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok Importaciones China"
+            title="TikTok Importaciones China"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+              <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z" />
+            </svg>
+          </a>
+
+          <a
+            class="mini-icon"
+            data-tag="ML"
+            href="https://tiktok.com/@maty.mercado.libr"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok Mercado Libre"
+            title="TikTok Mercado Libre"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+              <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z" />
+            </svg>
+          </a>
+
+          <a
+            class="mini-icon mini-icon--yt"
+            data-tag="YT"
+            href="https://www.youtube.com/@matypereiraimportacion"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+            title="YouTube"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+              <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.9 4.6 12 4.6 12 4.6s-5.9 0-7.5.5A3 3 0 0 0 2.4 7.2 31.4 31.4 0 0 0 2 12a31.4 31.4 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 22 12a31.4 31.4 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Topbar -->
+  <div class="topbar" aria-label="Barra superior">
+    <div class="container topbar__row">
+      <div class="topbar__social" aria-label="Canales">
+        <a
+          class="social-ico"
+          data-tag="China"
+          href="https://www.tiktok.com/@matyfortin"
+          target="_blank"
+          rel="noopener"
+          aria-label="TikTok Importaciones China"
+          title="TikTok Importaciones China"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z" />
+          </svg>
+        </a>
+
+        <a
+          class="social-ico"
+          data-tag="ML"
+          href="https://tiktok.com/@maty.mercado.libr"
+          target="_blank"
+          rel="noopener"
+          aria-label="TikTok Mercado Libre"
+          title="TikTok Mercado Libre"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.5 2h3.1c.2 2 1.4 4 3.9 4.7V10c-1.6-.1-2.9-.7-3.9-1.5v6.3c0 3.3-2.7 5.9-6 5.9S6.6 18.4 6.6 15.1c0-3.3 2.7-5.9 6-5.9.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.2-1.2-.2-1.5 0-2.8 1.2-2.8 2.8s1.3 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2z" />
+          </svg>
+        </a>
+
+        <a
+          class="social-ico social-ico--yt"
+          data-tag="YT"
+          href="https://www.youtube.com/@matypereiraimportacion"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+          title="YouTube"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.9 4.6 12 4.6 12 4.6s-5.9 0-7.5.5A3 3 0 0 0 2.4 7.2 31.4 31.4 0 0 0 2 12a31.4 31.4 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 22 12a31.4 31.4 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="topbar__links">
+        <a href="../index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-row header-row--compact">
+        <div class="header-left">
+          <label
+            for="nav-toggle"
+            class="icon-btn"
+            aria-label="Abrir menú"
+            role="button"
+            tabindex="0"
+          >
+            ☰
+          </label>
+        </div>
+
+        <div class="header-center">
+          <a class="logo" href="../index.html" aria-label="Inicio">
+            <img
+              class="logo__img"
+              src="../img/logo-innovasmart.jpeg"
+              alt="Innovasmart"
+            />
+          </a>
+        </div>
+
+        <div class="header-right">
+          <form
+            class="search search--compact"
+            action="productos.html"
+            method="get"
+            role="search"
+            aria-label="Buscar productos"
+            data-site-search
+          >
+            <input
+              class="search__input"
+              type="search"
+              name="q"
+              placeholder="Buscar guías, mentorías, premium..."
+              autocomplete="off"
+            />
+            <button class="search__btn" type="submit" aria-label="Buscar">
+              <span class="search__btn-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" />
+                </svg>
+              </span>
+            </button>
+          </form>
+
+          <a
+            class="icon-btn cart-btn"
+            href="https://wa.me/5491160374306?text=Hola%20quiero%20hacer%20una%20consulta%20por%20las%20asesor%C3%ADas"
+            target="_blank"
+            rel="noopener"
+            aria-label="Consultar por WhatsApp"
+          >
+            <svg
+              class="icon-cart"
+              viewBox="0 0 24.38 30.52"
+              width="24.38"
+              height="30.52"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                transform="translate(-3.62 -0.85)"
+                d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- Hero -->
+    <section class="page-hero" aria-label="Encabezado de contacto">
+      <div class="container">
+        <p class="kicker text-center">Atención</p>
+        <h1 class="page-hero__title text-center">Contacto</h1>
+        <p class="page-hero__subtitle text-center">
+          WhatsApp para consultas, redes para tips y un canal directo para desarrollo web.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <section class="section" aria-label="Canales de contacto">
+      <div class="container">
+        <div class="contact-grid contact-grid--asym">
+
+          <!-- Card: WhatsApp -->
+          <article class="card contact-card contact-card--center contact-card--primary">
+            <div class="contact-card__head">
+              <h2 class="contact-card__title">WhatsApp</h2>
+              <span class="pill pill--soft">Respuesta rápida</span>
+            </div>
+
+            <p class="muted contact-lead">
+              Contanos tu etapa y te orientamos al nivel correcto.
+            </p>
+
+            <form
+              class="contact-form"
+              data-wa-form
+              aria-label="Armar mensaje para WhatsApp"
+            >
+              <label class="field">
+                <span class="field__label">Tu etapa</span>
+                <select class="field__control" name="etapa" required>
+                  <option value="" selected disabled>Seleccioná una opción</option>
+                  <option value="0 ventas (arrancando)">0 ventas (arrancando)</option>
+                  <option value="ya vendo (quiero optimizar)">Ya vendo (quiero optimizar)</option>
+                  <option value="quiero escalar (más volumen)">Quiero escalar (más volumen)</option>
+                  <option value="premium (quiero 1 a 1)">Premium (quiero 1 a 1)</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label">Tu consulta (opcional)</span>
+                <input
+                  class="field__control"
+                  type="text"
+                  name="consulta"
+                  placeholder="Ej: quiero mejorar conversión / envíos / publicidad"
+                />
+              </label>
+
+              <div class="contact-card__actions">
+                <a
+                  class="btn btn--whatsapp btn--lg"
+                  data-wa-link
+                  href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20hacer%20una%20consulta"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Abrir WhatsApp
+                </a>
+
+                <a class="btn btn--ghost btn--lg" href="productos.html">
+                  Ver productos
+                </a>
+              </div>
+
+              <p class="muted small">
+                Tip: mientras más claro el mensaje, más rápido te orientamos.
+              </p>
+            </form>
+
+            <div class="contact-info">
+              <div class="info-row">
+                <span class="info-ico" aria-hidden="true">🕒</span>
+                <div>
+                  <strong>Horarios:</strong>
+                  <div class="muted">Lun a sáb • 10:00 a 19:00</div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="info-ico" aria-hidden="true">✉️</span>
+                <div>
+                  <strong>Email:</strong>
+                  <div class="muted">
+                    <a href="mailto:Matymercadolibre1@gmail.com" data-copy-email>
+                      Matymercadolibre1@gmail.com
+                    </a>
+                    <span class="muted small" data-copy-toast hidden>
+                      Copiado ✅
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="note note--soft mt-12">
+              <strong>Importante:</strong> si querés Premium, te pedimos 3 respuestas rápidas para confirmar que estás listo.
+            </div>
+
+            <div class="contact-steps" aria-label="Cómo funciona el contacto">
+              <h3 class="contact-steps__title">¿Cómo funciona?</h3>
+
+              <div class="contact-steps__list">
+                <article class="contact-step">
+                  <span class="contact-step__num" aria-hidden="true">1</span>
+                  <div class="contact-step__content">
+                    <strong>Nos contás tu etapa</strong>
+                    <p>
+                      Arrancando, optimizando o escalando. Así entendemos mejor qué necesitás.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="contact-step">
+                  <span class="contact-step__num" aria-hidden="true">2</span>
+                  <div class="contact-step__content">
+                    <strong>Te orientamos al nivel correcto</strong>
+                    <p>
+                      Te decimos qué guía, mentoría o servicio encaja mejor con tu situación actual.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="contact-step">
+                  <span class="contact-step__num" aria-hidden="true">3</span>
+                  <div class="contact-step__content">
+                    <strong>Seguís directo por WhatsApp</strong>
+                    <p>
+                      Coordinamos rápido y avanzás con una respuesta más clara y ordenada.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="contact-topics" aria-label="Temas que podés consultar">
+              <h3 class="contact-topics__title">¿Qué podés consultar?</h3>
+
+              <div class="chip-row chip-row--center">
+                <span class="chip">Importaciones</span>
+                <span class="chip">Mercado Libre</span>
+                <span class="chip">Publicidad</span>
+                <span class="chip">Full / Flex</span>
+                <span class="chip">Mentoría premium</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card: Redes y siguiente paso -->
+          <article class="card contact-card contact-card--center contact-card--social">
+            <div class="contact-card__head">
+              <h2 class="contact-card__title">Redes sociales</h2>
+              <span class="pill pill--soft">Contenido gratis</span>
+            </div>
+
+            <p class="muted contact-lead">
+              Seguinos para tips cortos, casos y novedades sobre importación y marketplace.
+            </p>
+
+            <div class="social-groups" aria-label="Canales de contenido">
+              <div class="social-group">
+                <p class="social-group__title">Importaciones China</p>
+                <a
+                  class="social-btn social-btn--tiktok"
+                  href="https://www.tiktok.com/@matyfortin"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Abrir TikTok Importaciones China"
+                >
+                  <span class="social-btn__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M16.5 3c.6 2.5 2.3 4 4.5 4.2V10c-1.7-.1-3.2-.6-4.5-1.6v6.7c0 3.2-2.6 5.9-5.9 5.9S4.7 18.3 4.7 15.1s2.6-5.9 5.9-5.9c.5 0 1 .1 1.5.2v3.1c-.5-.2-1-.4-1.5-.4-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7V3h3.2Z" />
+                    </svg>
+                  </span>
+                  TikTok
+                </a>
+              </div>
+
+              <div class="social-group">
+                <p class="social-group__title">Mercado Libre</p>
+                <a
+                  class="social-btn social-btn--tiktok"
+                  href="https://tiktok.com/@maty.mercado.libr"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Abrir TikTok Mercado Libre"
+                >
+                  <span class="social-btn__ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M16.5 3c.6 2.5 2.3 4 4.5 4.2V10c-1.7-.1-3.2-.6-4.5-1.6v6.7c0 3.2-2.6 5.9-5.9 5.9S4.7 18.3 4.7 15.1s2.6-5.9 5.9-5.9c.5 0 1 .1 1.5.2v3.1c-.5-.2-1-.4-1.5-.4-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7V3h3.2Z" />
+                    </svg>
+                  </span>
+                  TikTok
+                </a>
+              </div>
+            </div>
+
+            <div class="social-feature">
+              <a
+                class="social-btn social-btn--youtube social-btn--featured"
+                href="https://www.youtube.com/@matypereiraimportacion"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir YouTube"
+              >
+                <span class="social-btn__ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.5.4A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.7.4 7.5.4 7.5.4s5.8 0 7.5-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+                  </svg>
+                </span>
+                YouTube
+              </a>
+            </div>
+
+            <div class="note note--soft mt-12">
+              <strong>Objetivo:</strong> que aprendas con contenido gratis y cuando estés listo, pases al nivel correcto.
+            </div>
+
+            <div class="social-next">
+              <div class="social-next__head">
+                <h3>¿Ya validaste tu producto?</h3>
+                <p class="muted">
+                  El siguiente paso es profesionalizar la venta con servicios a medida.
+                </p>
+              </div>
+
+              <div class="social-next__grid">
+                <article class="mini-service">
+                  <h4 class="mini-service__title">Marketing</h4>
+                  <p class="mini-service__text">
+                    Más tráfico, más visibilidad y mejor posicionamiento para vender mejor.
+                  </p>
+
+                  <div class="mini-service__actions">
+                    <a class="btn btn--ghost btn--sm" href="productos.html">Ver</a>
+                    <a
+                      class="btn btn--primary btn--sm"
+                      href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20consultar%20por%20marketing"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Contactar
+                    </a>
+                  </div>
+                </article>
+
+                <article class="mini-service">
+                  <h4 class="mini-service__title">Página web</h4>
+                  <p class="mini-service__text">
+                    Una web propia para mostrar mejor tus productos y convertir más visitas en ventas.
+                  </p>
+
+                  <div class="mini-service__actions">
+                    <a class="btn btn--ghost btn--sm" href="servicios-web.html">Ver</a>
+                    <a
+                      class="btn btn--primary btn--sm"
+                      href="https://wa.me/5491156323161?text=Hola%20Innovasmart%2C%20quiero%20consultar%20por%20una%20web"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Contactar
+                    </a>
+                  </div>
+
+                  <p class="muted small">
+                    Atención directa para desarrollo web.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp flotante -->
+    <a
+      class="wa-float"
+      href="https://wa.me/5491160374306?text=Hola%20Innovasmart%2C%20quiero%20hacer%20una%20consulta"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    >
+      <svg viewBox="0 0 16 16" class="svgIcon" fill="white">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+      </svg>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted">© 2026 Innovasmart</p>
+      <a class="muted" href="productos.html">Productos</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+@use "../utilities/breakpoints" as *;
+
+/* =========================================================
+   PRODUCT GRID + PRODUCT CARD
+   Componente global reutilizable.
+   La página solo modifica layout o variantes puntuales.
+========================================================= */
+
+/* Cantidad máxima de bullets visibles */
+$product-bullets-max: 3;
+
+/* =========================================================
+   PRODUCT TOKENS
+   Base general del componente.
+   Acá vive el comportamiento default de TODAS las cards.
+========================================================= */
+
+.product-grid{
+  /* Grid */
+  --product-grid-gap: 14px;
+
+  /* Imagen / poster */
+  --product-poster-h: clamp(180px, 56vw, 260px);
+  --product-poster-pad: 0px;
+
+  /* Encuadre */
+  --product-poster-fit: cover;
+  --product-poster-x: 50%;
+  --product-poster-y: 40%;
+  --product-poster-zoom: 0.99;
+
+  /* Texto */
+  --product-desc-lines: 2;
+  --product-bullet-lines: 1;
+}
+
+/* =========================================================
+   RESPONSIVE TOKENS
+========================================================= */
+
+@media (min-width: $bp-md){
+  .product-grid{
+    --product-grid-gap: 14px;
+    --product-poster-h: clamp(220px, 28vw, 300px);
+  }
+}
+
+@media (min-width: $bp-lg){
+  .product-grid{
+    --product-grid-gap: 16px;
+    --product-poster-h: clamp(240px, 18vw, 320px);
+  }
+}
+
+/* =========================================================
+   GRID BASE
+========================================================= */
+
+.product-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--product-grid-gap);
+}
+
+@media (min-width: $bp-md){
+  .product-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $bp-lg){
+  .product-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   GRID VARIANTS
+========================================================= */
+
+@media (min-width: $bp-lg){
+  .product-grid--2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-grid--3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .product-grid--4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   GROUP IMAGE CONTROL
+   Acá controlás grupos completos sin tocar cada card.
+========================================================= */
+
+/* Importaciones */
+.product-grid--imports{
+  --product-poster-h: clamp(260px, 30vw, 380px);
+  --product-poster-y: 12%;
+  --product-poster-zoom: 1.06;
+}
+
+/* Mercado Libre */
+.product-grid--ml-4{
+  --product-poster-h: clamp(160px, 22vw, 220px);
+  --product-poster-y: 18%;
+  --product-poster-zoom: 1.04;
+}
+
+/* Servicios */
+.product-grid--services{
+  --product-poster-h: clamp(120px, 16vw, 160px);
+  --product-poster-y: 20%;
+  --product-poster-zoom: 1.02;
+}
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card{
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: rgba(20,20,22,.92);
+  overflow: hidden;
+
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.product-card:hover,
+.product-card:focus-within{
+  transform: translateY(-2px);
+  border-color: rgba(255,230,0,.28);
+  box-shadow: var(--shadow);
+}
+
+.product-card.is-highlight{
+  outline: 3px solid rgba(255,230,0,.22);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   CLICK OVERLAY
+========================================================= */
+
+.card-hit{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+}
+
+.product-card .card__media,
+.product-card .card__body{
+  position: relative;
+  z-index: 2;
+}
+
+.product-card .card__actions{
+  position: relative;
+  z-index: 3;
+}
+
+/* =========================================================
+   MEDIA / IMAGE
+   ESTA ES LA BASE GLOBAL DE IMAGEN.
+========================================================= */
+
+.product-card .card__media{
+  flex: 0 0 auto;
+  height: var(--product-poster-h);
+  padding: var(--product-poster-pad);
+
+  display: grid;
+  align-items: start;
+  justify-items: center;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+
+  background:
+    radial-gradient(800px 220px at 50% 0%, rgba(255,230,0,.10), transparent 60%),
+    #0f0f0f;
+}
+
+.product-card__img{
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: var(--product-poster-fit);
+  object-position: var(--product-poster-x) var(--product-poster-y);
+
+  transform: scale(var(--product-poster-zoom));
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.product-card .card__body{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 10px 10px 12px;
+  text-align: left;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.product-card .card__title{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 950;
+  letter-spacing: -.3px;
+  line-height: 1.15;
+}
+
+@media (min-width: $bp-lg){
+  .product-card .card__title{
+    font-size: 17px;
+  }
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.product-card .card__text{
+  margin: 0;
+
+  color: var(--text-2);
+  font-size: 13.4px;
+  font-weight: 650;
+  line-height: 1.35;
+
+  display: -webkit-box;
+  -webkit-line-clamp: var(--product-desc-lines);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================================================
+   BULLETS
+========================================================= */
+
+.product-card .card__bullets{
+  display: grid;
+  gap: 6px;
+
+  margin: 2px 0 0;
+  padding: 0;
+
+  list-style: none;
+
+  color: rgba(255,255,255,.80);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.product-card .card__bullets li{
+  position: relative;
+  padding-left: 14px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: var(--product-bullet-lines);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card .card__bullets li:nth-child(n + #{$product-bullets-max + 1}){
+  display: none;
+}
+
+.product-card .card__bullets li::before{
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: .55em;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: rgba(255,230,0,.85);
+  box-shadow: 0 0 0 2px rgba(255,230,0,.12);
+
+  transform: translateY(-50%);
+}
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.product-card .price{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-top: 2px;
+  padding-top: 8px;
+
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.product-card .price__value{
+  color: var(--ml-yellow);
+  font-size: 17px;
+  font-weight: 950;
+  letter-spacing: -.2px;
+}
+
+.product-card .price__hint{
+  color: var(--muted);
+  text-align: right;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.product-card .card__actions{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: auto;
+}
+
+/* =========================================================
+   CARD MODIFIERS
+   Variantes compartidas.
+========================================================= */
+
+.product-card--poster-top{
+  --product-poster-y: 4%;
+  --product-poster-zoom: 1.08;
+}
+
+.product-card--featured{
+  border-color: rgba(255,230,0,.34);
+
+  box-shadow:
+    0 22px 70px rgba(255,230,0,.08),
+    var(--shadow);
+}
+
+.product-card--featured .card__media{
+  background:
+    radial-gradient(900px 260px at 50% 0%, rgba(255,230,0,.16), transparent 55%),
+    #0f0f0f;
+}
+
+/* =========================================================
+   CARD SIZE VARIANTS
+   Variantes reutilizables del componente
+========================================================= */
+
+.product-card--big{
+
+  border-color: rgba(255,230,0,.24);
+  box-shadow: var(--glow-yellow);
+
+}
+
+.product-card--big .card__media{
+
+  height: clamp(260px, 30vw, 380px);
+
+  background:
+    radial-gradient(900px 260px at 50% 0%, rgba(255,230,0,.18), transparent 55%),
+    #0f0f0f;
+
+}
+
+.product-card--big .product-card__img{
+
+  transform: scale(1.10);
+  object-position: 50% 10%;
+
+}
+
+
+/* cards compactas */
+
+.product-card--mini{
+
+  opacity: .95;
+
+}
+
+.product-card--mini .card__media{
+
+  height: clamp(120px, 16vw, 160px);
+
+}
+
+.product-card--mini .product-card__img{
+
+  transform: scale(1.06);
+  object-position: 50% 18%;
+
+}
+
+/* =========================================================
+   INDIVIDUAL IMAGE CONTROL
+   Acá tocás UNA card puntual sin romper las demás.
+   Ajustá solo lo necesario.
+========================================================= */
+
+/* Importaciones */
+.product-card--imp-1{
+  --product-poster-y: 14%;
+  --product-poster-zoom: 1.04;
+}
+
+.product-card--imp-premium{
+  --product-poster-y: 10%;
+  --product-poster-zoom: 1.08;
+}
+
+/* Mercado Libre */
+.product-card--ml-1{
+  --product-poster-y: 6%;
+  --product-poster-zoom: 1.06;
+}
+
+.product-card--ml-2{
+  --product-poster-y: 10%;
+  --product-poster-zoom: 1.05;
+}
+
+.product-card--ml-3{
+  --product-poster-y: 14%;
+  --product-poster-zoom: 1.04;
+}
+
+.product-card--ml-4{
+  --product-poster-y: 8%;
+  --product-poster-zoom: 1.07;
+}
+
+/* Servicios */
+.product-card--serv-mkt{
+  --product-poster-y: 22%;
+  --product-poster-zoom: 1.03;
+}
+
+.product-card--serv-web{
+  --product-poster-y: 18%;
+  --product-poster-zoom: 1.02;
+}

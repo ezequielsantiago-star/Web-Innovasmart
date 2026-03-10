@@ -1,0 +1,110 @@
+@use "../utilities" as *;
+
+/* =========================================================
+   PRODUCT META
+   Fila informativa de cada product-card:
+   nivel, pills, badges y estados destacados.
+========================================================= */
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.product-meta{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  margin-bottom: 10px;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .1px;
+  color: var(--text-2);
+}
+
+.meta-left,
+.meta-right{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.meta-right{
+  margin-left: auto;
+}
+
+/* DOT */
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+
+  background: #bbb;
+
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.06);
+}
+
+.dot--n1{ background:#FFE600; }
+.dot--n2{ background:#FF9A00; }
+.dot--n3{ background:#FF3B30; }
+.dot--n4{ background:#fff; }
+
+.dot--premium{
+  background:#FFE600;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.06),
+    0 0 18px rgba(255,230,0,.30);
+}
+
+/* =========================================================
+   PILLS
+   Etiquetas secundarias cortas.
+========================================================= */
+
+.pill{
+  @extend %pill-base;
+}
+
+.pill--soft{
+  background: rgba(255,230,0,.10);
+  border-color: rgba(255,230,0,.22);
+  color: rgba(255,255,255,.92);
+}
+
+/* =========================================================
+   BADGES
+   Etiquetas destacadas de mayor jerarquía.
+========================================================= */
+
+.badge{
+  @extend %badge-base;
+}
+
+.badge--hot{
+  background: rgba(255,230,0,.90);
+  border-color: rgba(0,0,0,.18);
+  color: #111;
+  box-shadow: var(--glow-yellow);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@include down(sm){
+  .product-meta{
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .meta-right{
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}

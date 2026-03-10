@@ -1,0 +1,104 @@
+@use "../utilities/breakpoints" as *;
+
+/* =========================================================
+   FOOTER
+   Cierre simple del sitio con un poco más de vida visual.
+========================================================= */
+
+.site-footer{
+  position: relative;
+  overflow: hidden;
+
+  padding: 22px 0 30px;
+
+  border-top: 1px solid rgba(255,255,255,.12);
+
+  background:
+    radial-gradient(700px 180px at 50% 0%, rgba(255,230,0,.08), transparent 60%),
+    rgba(20,20,22,.92);
+}
+
+/* línea glow superior sutil */
+.site-footer::before{
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,230,0,.45),
+    transparent
+  );
+}
+
+/* =========================================================
+   FOOTER LAYOUT
+========================================================= */
+
+.footer-row{
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  color: var(--muted);
+}
+
+/* =========================================================
+   FOOTER TEXT
+========================================================= */
+
+.footer-copy{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* =========================================================
+   FOOTER LINK
+========================================================= */
+
+.footer-link{
+  position: relative;
+  color: var(--muted);
+  font-weight: 800;
+  transition:
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.footer-link:hover{
+  color: var(--ml-yellow);
+  transform: translateY(-1px);
+}
+
+.footer-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.footer-link:hover::after{
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@include down(sm){
+  .footer-row{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

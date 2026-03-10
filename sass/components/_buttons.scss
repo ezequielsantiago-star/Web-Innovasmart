@@ -1,0 +1,140 @@
+@use "../utilities" as *;
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn{
+  @extend %btn-base;
+
+  @include interactive(
+    $bg-hover: rgba(255,255,255,.08),
+    $border-hover: rgba(255,230,0,.25),
+    $shadow-hover: var(--shadow)
+  );
+
+  &:focus-visible{
+    outline: none;
+    border-color: rgba(255,230,0,.42);
+    box-shadow:
+      0 0 0 4px rgba(255,230,0,.12),
+      var(--shadow-sm);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"]{
+    opacity: .55;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* =========================================================
+   VARIANTES
+   ========================================================= */
+
+.btn--primary{
+  background: var(--ml-yellow);
+  color: #111;
+  border-color: rgba(0,0,0,.18);
+  box-shadow: var(--glow-yellow);
+
+  @include t((transform, box-shadow, background, border-color));
+
+  &:hover{
+    background: var(--ml-yellow-2);
+    box-shadow: var(--glow-yellow-2);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  &:active{
+    transform: translateY(0) scale(1);
+  }
+
+  &:focus-visible{
+    box-shadow:
+      0 0 0 4px rgba(255,230,0,.18),
+      var(--glow-yellow-2);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"]{
+    background: var(--ml-yellow);
+    border-color: rgba(0,0,0,.18);
+    box-shadow: var(--shadow-sm);
+    transform: none;
+  }
+}
+
+.btn--ghost{
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  border-color: rgba(255,255,255,.12);
+
+  @include t((transform, box-shadow, background, border-color, color));
+
+  &:hover{
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,230,0,.22);
+    color: var(--text);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:active{
+    transform: translateY(0);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"]{
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.btn--whatsapp{
+  background: #25D366;
+  color: #111;
+  border-color: rgba(0,0,0,.10);
+
+  @include t((transform, box-shadow, background, border-color));
+
+  &:hover{
+    background: #2fe06f;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(37,211,102,.22);
+  }
+
+  &:active{
+    transform: translateY(0);
+  }
+
+  &:focus-visible{
+    box-shadow:
+      0 0 0 4px rgba(37,211,102,.16),
+      0 12px 28px rgba(37,211,102,.18);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"]{
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* =========================================================
+   TAMAÑOS
+   ========================================================= */
+
+.btn--sm{
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: .92rem;
+}
+
+.btn--lg{
+  padding: 14px 16px;
+  border-radius: 16px;
+}

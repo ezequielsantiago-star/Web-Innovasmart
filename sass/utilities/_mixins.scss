@@ -1,0 +1,122 @@
+@use "sass:list";
+
+/* =========================================================
+   MIXINS
+   Helpers reutilizables de UI.
+   No incluir breakpoints ni media queries aquí.
+========================================================= */
+
+/* =========================================================
+   TRANSITIONS
+   Construye transiciones consistentes para múltiples props.
+========================================================= */
+
+@mixin t($props, $dur: var(--dur-fast), $ease: var(--ease)){
+  $list: ();
+
+  @each $p in $props{
+    $list: list.append($list, #{$p} #{$dur} #{$ease}, $separator: comma);
+  }
+
+  transition: $list;
+}
+
+/* =========================================================
+   FOCUS RING
+   Estado de foco reutilizable para inputs y botones.
+========================================================= */
+
+@mixin focus-ring($border: rgba(255,230,0,.60), $ring: var(--ring)){
+  &:focus{
+    border-color: $border;
+    box-shadow: var(--shadow-sm), $ring;
+    outline: none;
+  }
+}
+
+/* =========================================================
+   TEXT CLAMP
+   Limita texto a una cantidad de líneas.
+========================================================= */
+
+@mixin clamp($lines: 2){
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================================================
+   SURFACE
+   Bases visuales reutilizables para cards/panels.
+========================================================= */
+
+@mixin surface-card{
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+    rgba(20,20,22,.92);
+
+  box-shadow: var(--shadow);
+}
+
+@mixin surface-panel{
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(16,16,18,.92);
+  box-shadow: var(--shadow-sm);
+}
+
+/* =========================================================
+   INTERACTIVE
+   Hover/active reutilizable para elementos interactivos.
+========================================================= */
+
+@mixin interactive(
+  $bg-hover: rgba(255,255,255,.08),
+  $border-hover: rgba(255,230,0,.22),
+  $shadow-hover: var(--shadow),
+  $y: -1px,
+  $scale: 1.02
+){
+  @include t((transform, background, box-shadow, border-color));
+
+  &:hover{
+    transform: translateY($y) scale($scale);
+    background: $bg-hover;
+    border-color: $border-hover;
+    box-shadow: $shadow-hover;
+  }
+
+  &:active{
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   SELECT CARET
+   Flecha custom para <select>.
+========================================================= */
+
+@mixin select-caret{
+  appearance: none;
+  padding-right: 40px;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.70) 50%),
+    linear-gradient(135deg, rgba(255,255,255,.70) 50%, transparent 50%),
+    linear-gradient(to right, rgba(255,255,255,.12), rgba(255,255,255,.12));
+
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%,
+    calc(100% - 40px) 50%;
+
+  background-size:
+    6px 6px,
+    6px 6px,
+    1px 18px;
+
+  background-repeat: no-repeat;
+}

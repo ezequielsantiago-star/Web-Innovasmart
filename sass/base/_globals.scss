@@ -1,0 +1,123 @@
+/* =========================================================
+   GLOBALS
+   Estilos base del documento.
+   Aquí van SOLO estilos globales de HTML, accesibilidad
+   y helpers pequeños. No colocar componentes.
+========================================================= */
+
+/* =========================================================
+   HTML
+   Define comportamiento global del navegador.
+   color-scheme evita fondos blancos forzados en UI nativa.
+========================================================= */
+
+html{
+  color-scheme: dark;
+}
+
+/* Scroll suave si el usuario no pidió reducir movimiento */
+@media (prefers-reduced-motion: no-preference){
+  html{
+    scroll-behavior: smooth;
+  }
+}
+
+/* =========================================================
+   BODY
+   Base visual general del sitio.
+========================================================= */
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-main, Arial, sans-serif);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =========================================================
+   SELECTION
+   Color de selección de texto.
+========================================================= */
+
+::selection{
+  background: rgba(255,230,0,.70);
+  color: #111;
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+   Skip link para navegación por teclado.
+========================================================= */
+
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 12px;
+  background: #111;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.skip-link:focus{
+  left: 12px;
+}
+
+/* =========================================================
+   FOCUS
+   Mejora la visibilidad del foco para teclado.
+========================================================= */
+
+:focus-visible{
+  outline: 3px solid var(--focus, #1976d2);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* =========================================================
+   MEDIA
+   Previene desbordes de imágenes.
+========================================================= */
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   LINKS
+   Heredan color del contexto.
+========================================================= */
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   HELPERS
+   Utilidades pequeñas globales.
+========================================================= */
+
+.small{
+  font-size: 0.8125rem;
+}
+
+.muted{
+  color: var(--muted, #888);
+}
+
+.mt-12{
+  margin-top: 12px;
+}
+
+/* =========================================================
+   MODAL STATE
+   Bloquea scroll del body cuando el modal está abierto.
+========================================================= */
+
+body.is-modal-open{
+  overflow: hidden;
+}

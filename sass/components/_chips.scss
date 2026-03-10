@@ -1,0 +1,55 @@
+@use "../utilities" as *;
+
+.chip-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+.chip-row--center{
+  justify-content: center;
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  color: var(--text-2);
+  font-weight: 850;
+  font-size: .9rem;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+
+  &:hover{
+    transform: translateY(-2px) scale(1.02);
+    background:
+      linear-gradient(180deg, rgba(255,230,0,.14), rgba(255,255,255,.04));
+    border-color: rgba(255,230,0,.28);
+    color: var(--text);
+    box-shadow:
+      var(--shadow),
+      0 0 18px rgba(255,230,0,.08);
+  }
+
+  &:focus-visible{
+    outline: none;
+    border-color: rgba(255,230,0,.42);
+    box-shadow: 0 0 0 4px rgba(255,230,0,.12);
+  }
+}

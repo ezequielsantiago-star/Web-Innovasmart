@@ -1,0 +1,56 @@
+@use "../utilities" as *;
+
+.contact-form{
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.field{
+  display: grid;
+  gap: 7px;
+  text-align: left;
+}
+
+.field__label{
+  margin: 0;
+  font-weight: 800;
+  font-size: .82rem;
+  line-height: 1.2;
+  color: var(--muted);
+  letter-spacing: .01em;
+}
+
+.field__control{
+  @extend %control;
+  width: 100%;
+}
+
+textarea.field__control{
+  min-height: 130px;
+  resize: vertical;
+}
+
+select.field__control{
+  @include select-caret;
+}
+
+.field__help{
+  margin: 0;
+  font-size: .78rem;
+  line-height: 1.35;
+  color: var(--muted-2);
+}
+
+.field--error .field__label{
+  color: #ffb4b4;
+}
+
+.field--error .field__control{
+  border-color: rgba(255, 90, 90, .45);
+  box-shadow: 0 0 0 3px rgba(255, 90, 90, .10);
+}
+
+.field--error .field__help{
+  color: #ffb4b4;
+}
